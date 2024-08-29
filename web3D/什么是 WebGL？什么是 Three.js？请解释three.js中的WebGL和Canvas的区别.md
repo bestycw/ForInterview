@@ -1,0 +1,5 @@
+1. WebGL(全写Web Graphics Library)是一种3D绘图协议，这种绘图技术标准允许把JavaScript和OpenGL ES 2.0结合在一起，通过增加OpenGL ES 2.0的一个JavaScript绑定，WebGL可以为HTML5 Canvas提供硬件3D加速渲染，这样Web开发人员就可以借助系统显卡来在浏览器里更流畅地展示3D场景和模型了，还能创建复杂的导航和数据视觉化。WebGL技术标准免去了开发网页专用渲染插件的麻烦，可被用于创建具有复杂3D结构的网站页面，甚至可以用来设计3D网页游戏等等。
+2. Three.js是一款基于JavaScript可直接运行GPU驱动游戏与图形驱动应用于浏览器的WebGL引擎，其库提供的特性与API以绘制3D场景于浏览器。
+3. Canvas与WebGL的区别是canvas API提供二维绘图方式，图形的绘制主要通过CanvasRenderingContext2D接口完成，通过 canvas.getContext('2d') 获取二维图像绘图上下文；而WebGL  API可以在任何兼容canvas中的渲染2d和3d图形，WebGL API 提供三维接口，图形绘制主要通过WebGLRenderingContext接口完成，通过canvas.getContext('webgl')来获取WebGL上下文。
+
+
