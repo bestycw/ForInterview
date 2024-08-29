@@ -1,0 +1,29 @@
+localStorage、cookie、sessionstorage
+1. cookie
+cookie是客户端与服务器端进行会话使用的一个能够在浏览器本地化存储的技术。简言之，cookie是服务器端发给客户端的文本文件,但只能储存4kb的数据;目的是用于辨别用户身份，记录跟踪购物车的商品信息（如数量）、记录用户访问次数等
+原理：客户端请求服务器时，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。而客户端浏览器会把Cookie保存起来。当浏览器再请求服务器时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器通过检查该Cookie来获取用户状态。
+2. localstorage
+localStorage的生命周期是永久，除非手动去清除，否则永远都存在，他的储存大小是5MB，仅在客户端浏览器上储存，不参与服务器的通信。
+通常以键值对的方式储存，通常储存为字符串
+3. sessionstorage
+sessionStorage顾名思义，是在当前会话下有效，引入了一个“浏览器窗口的概念”,sessionStorage是在同源的同窗口中，始终存在的数据，只要浏览器不关闭，即使是刷新或者进入同源的另一个页面，数据仍在。同时打开“独立”的窗口，即使是同一个页面，sessionStorage的对象也是不同的。关闭窗口后sessionStorage就会被销毁。
+4. session
+Session是另一种记录客户状态的机制，不同的是Cookie保存在客户端浏览器中，而Session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上。这就是Session。客户端浏览器再次访问时只需要从该Session中查找该客户的状态就可以了。
+共同点：都是保存在浏览器端、且同源的 
+区别： 
+1、 cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下 
+2、存储大小限制也不同，cookie数据不能超过4K，同时因为每次http请求都会携带cookie、所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大 
+3、数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭 
+4、作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的 
+5、web Storage支持事件通知机制，可以将数据更新的通知发送给监听者 
+6、web Storage的api接口使用更方便
+三、session和cookie的区别与联系
+两者的区别：在安全和性能方面考虑
+1、cookie数据存放在客户端，session数据放在服务器上。
+2、cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用session。
+3、session会在一定时间内保存在服务器上，当访问增多，会比较占用你服务器的性能，考虑性能应当使用cookie。
+4、不同浏览器对cookie的数据大小限制不同，个数限制也不相同。单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+5、可以考虑将登陆信息等重要信息存放为session，不重要的信息可以放在cookie中。
+两者的联系：
+1、都是用来记录用户的信息，以便让服务器分辨不同的用户。
+2、可以搭配使用，但都有自己的使用局限，要考虑到安全和性能的问题。
